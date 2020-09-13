@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- JQuery UI CSS -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Task List</title>
   </head>
   <body>
     <div class="container w-50">
@@ -18,13 +20,42 @@
           <p class="lead text-center"><span id="timer"></span> To Go</p>
         </div>
       </div>
+      <div class="row text-center border">
+        <div class="col-3">
+          <button class="btn btn-success my-3" id="addtask">Add Task</button>
+        </div>
+        <div class="col-6">
+          <p class="lead my-3">Selected Date: <span id="showSelectedDate">None</span></p>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-primary my-3" id="pickaDate">Pick A Date</button>
+        </div>
+      </div>
+      <form id="form"></form>
+      <div class="row">
+        <div class="col-12 bg-custom">
+          <h4 class="my-3">Task List for Today</h4>
+          <ul class="list-group text-dark my-3"></ul>
+          <button type="button" class="btn btn-danger btn-lg btn-block btn-outline my-3" id="cleartask">Clear Task</button>
+        </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
     <script src="js/script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- JQuery UI for DatePicker -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+      $("#pickaDate").click(function () {
+        $("#datepicker").datepicker();
+        $("#datepicker").datepicker("option", "showAnim", "slide");
+        $("#datepicker").datepicker("option", "dateFormat", "d MM, yy");
+      });
+    </script>
   </body>
 </html>
